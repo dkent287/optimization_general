@@ -62,19 +62,21 @@ def Penalty_1(Array,Penalty_Value, Cap_Dataframe):
 
 
 def Penalty_2(Array,Penalty_Value_1,Penalty_Value_2):
+    
     Add_Penalties = []
+    
     if Array[0] not in range(11): # If first element in array was not a warehouse
-        
         Add_Penalties = np.append(Add_Penalties,Penalty_Value_1)
+    
     if Array[-1] not in range(11): # If last element in array was not a warehouse
-        
         Add_Penalties = np.append(Add_Penalties,Penalty_Value_1)
-    if Array[1] in range(11): # If second elemenet was warehouse
-        
+    
+    if Array[1] in range(11): # If second element was warehouse    
         Add_Penalties = np.append(Add_Penalties,Penalty_Value_1)
-    if Array[-2] in range(11): # If second to last was warehouse
-        
+    
+    if Array[-2] in range(11): # If second to last was warehouse    
         Add_Penalties = np.append(Add_Penalties,Penalty_Value_1)
+    
     t = 0
     for i in Array:
         if t < len(Array)-2: # If three cons. elements were warehouses
@@ -84,7 +86,9 @@ def Penalty_2(Array,Penalty_Value_1,Penalty_Value_2):
             if A1 in range(11) and A2 in range(11) and A3 in range(11):
                 Add_Penalties = np.append(Add_Penalties,Penalty_Value_2)
         t = t+1
+    
     Sum_Add_Penalties = sum(Add_Penalties)
+    
     return Sum_Add_Penalties
 
 
